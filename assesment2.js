@@ -31,9 +31,11 @@ const getBooksByAuthor=(name)=>{
     let allBooksByAuthor = [];
 
     for (let i = 0; i < books.length; i++) {
-        allBooksByAuthor.push(books[i].name.author.title);
+        if (books[i].author ==name) {
+            allBooksByAuthor.push(books[i])
+        }
     }
-    return getBooksByAuthor;
+    return allBooksByAuthor;
         
     }
 console.log(getBooksByAuthor('J.D. Salinger'));
@@ -43,13 +45,11 @@ console.log(getBooksByAuthor('J.D. Salinger'));
 // to the library, ensuring that the new book has all required properties (title, author,
 // publicationYear, and isAvailable).
 const addNewBook = (book)=>{
-    const newBooks = {
-
-
-    }
-
-
+    const newBook =  { title: 'Born a Crime', author: 'Trevor Noah', publicationYear: 2011,
+    isAvailable: true }
+        return books.push(newBook) 
 }
+console.log(newBook);
 
 
 // Create a function checkoutBook that takes a book title as an argument and changes
@@ -63,7 +63,6 @@ const checkoutBook=(booktitle)=>{
         else if (booktitle.books[index].isAvailable=false) {
             console.log(`${booktitle} is not available`);
         }
-        
     }
 }
 // checkoutBook('Great Expectations')
